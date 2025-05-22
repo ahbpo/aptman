@@ -3,8 +3,8 @@ A pacman wrapper with apt syntax and some sweet bonus features (note; currently 
 
 ## Features
 - A CLI with base pacman features
- - installing
- - removing
- - upgrading
- - searching
- - and possibly more
+    - installing
+    - removing
+    - upgrading
+    - searching
+    - and possibly more
