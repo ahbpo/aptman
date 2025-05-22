@@ -1,8 +1,8 @@
 # aptman
-A pacman wrapper with apt syntax and some sweet bonus features (note; currently only a CLI, argument-based usage soon)
+A pacman wrapper with apt syntax and some sweet bonus features
 
 ## Features
-- A CLI with base pacman features
+- A CLI using bash select and argument-based tool with base pacman features
     - installing
     - removing
     - upgrading
