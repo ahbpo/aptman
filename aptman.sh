@@ -61,8 +61,13 @@ query(){
   target="$1"
   if [ "$target" == "" ]
   then
-    read -p "Find what package? (leave empty for all installed packages) " query_query # haha get it because it's the query of the query or something im really tired
-    pacman -Q "$query_query"
+    read -p "Find what package? (leave empty for all installed packages) " query_term
+    if [ "$query_term" == "" ]
+    then
+      pacman -Q
+    else
+      pacman -Q "$query_term"
+    fi
   else
     pacman -Q "$target"
   fi
