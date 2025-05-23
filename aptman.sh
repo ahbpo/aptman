@@ -1,5 +1,7 @@
 #!/bin/bash
 
+lines_till_prompt=25
+
 install(){
   target="$1"
   if [ "$target" == "" ]
@@ -28,8 +30,11 @@ search() {
     if [ "$target" == "" ]
     then
       read -p "Search for what? " search_term
-      # check if search output exceeds 25 lines (maximum on some old hardware) and ask wether or not to use less
-      if [ "$(pacman -Ss "$search_term" | wc -l)" -ge 25 ]
+      # check if search output exceeds
+      # the value of $lines_till_prompt (25 lines)
+      # (maximum on some old hardware) and ask
+      # wether or not to use less
+      if [ "$(pacman -Ss "$search_term" | wc -l)" -ge $lines_till_prompt ]
       then
         read -p "Search output has more lines than an usual terminal, use less? (Y/n) " use_less
         case $use_less in
