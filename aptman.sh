@@ -87,12 +87,8 @@ do
   exit)
     exit 0
     ;;
-  "")
-    echo "No operation specified, quitting..."
-    exit 0
-    ;;
   *)
-    echo "Invalid operation, quitting..."
+    echo "Invalid or empty operation, quitting..."
     exit 0
     ;;
 
