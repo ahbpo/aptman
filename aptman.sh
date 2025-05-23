@@ -77,7 +77,7 @@ case "$1" in
   query) query "$2" ;;
 esac
 else
-PS3="Select an operation [1-5]: "
+PS3="Select an operation [1-6]: "
 
 # check if ran with sudo or as root (both resulting in a user id of 0)
 if [ "$(id -u)" != 0 ]
@@ -86,7 +86,7 @@ then
 
 fi
 
-select op in install remove upgrade search exit
+select op in install remove upgrade search query exit
 do
   case $op in
   install) install ;;
