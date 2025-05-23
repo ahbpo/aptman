@@ -1,24 +1,24 @@
 #!/bin/bash
 
 install(){
-    target="$1"
-    if [ "$target" == "" ]
-    then
+  target="$1"
+  if [ "$target" == "" ]
+  then
     read -p "Install what? " package_to_install
     pacman -S "$package_to_install"
-    else
+  else
     pacman -S "$target"
-    fi
+  fi
 }
 remove(){
-    target="$1"
-    if [ "$target" == "" ]
-    then
+  target="$1"
+  if [ "$target" == "" ]
+  then
     read -p "Remove what? " package_to_remove
     pacman -Rn "$package_to_remove"
-    else
+  else
     pacman -S "$target"
-    fi
+  fi
 }
 upgrade(){
     pacman -Syu
