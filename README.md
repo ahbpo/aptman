@@ -7,4 +7,5 @@ A pacman wrapper with apt syntax and some sweet bonus features
     - removing
     - upgrading
     - searching
+    - querying (searching installed packages)
     - and possibly more
