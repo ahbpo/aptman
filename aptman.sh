@@ -79,18 +79,11 @@ fi
 select op in install remove upgrade search exit
 do
   case $op in
-  install)
-    install
-    ;;
-  remove)
-    remove
-    ;;
-  upgrade)
-    upgrade
-    ;;
-  search)
-    search
-    ;;
+  install) install ;;
+  remove) remove ;;
+  upgrade) upgrade ;;
+  search) search ;;
+  query) query ;;
   exit)
     exit 0
     ;;
