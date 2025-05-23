@@ -52,12 +52,21 @@ search() {
             ;;
         esac
       fi
-    
+
     else
       pacman -Ss "$target"
     fi
 }
-
+query(){
+  target="$1"
+  if [ "$target" == "" ]
+  then
+    read -p "Find what package? (leave empty for all installed packages) " query_query # haha get it because it's the query of the query or something im really tired
+    pacman -Q "$query_query"
+  else
+    pacman -Q "$target"
+  fi
+}
 if [ "$1" != "" ]
 then
 case "$1" in
@@ -65,6 +74,7 @@ case "$1" in
   remove) remove "$2" ;;
   upgrade) upgrade "$2" ;;
   search) search "$2" ;;
+  query) query "$2" ;;
 esac
 else
 PS3="Select an operation [1-5]: "
