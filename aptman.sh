@@ -103,13 +103,13 @@ done
 
 if [ "$1" != "" ] && [ "$interactive" == false ]
 then
-case "$1" in
-  install) install "$2" ;;
-  remove) remove "$2" ;;
-  upgrade) upgrade "$2" ;;
-  search) search "$2" ;;
-  query) query "$2" ;;
-esac
+  case "$1" in
+    install) install "$2" ;;
+    remove) remove "$2" ;;
+    upgrade) upgrade "$2" ;;
+    search) search "$2" ;;
+    query) query "$2" ;;
+  esac
 elif [ "$1" == "" ] && [ "$interactive" == false ]
 then
   help
