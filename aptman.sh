@@ -1,6 +1,7 @@
 #!/bin/bash
 
 lines_till_prompt=25
+interactive=false
 
 install(){
   target="$1"
@@ -72,7 +73,35 @@ query(){
     pacman -Q "$target"
   fi
 }
-if [ "$1" != "" ]
+help() {
+  echo "Usage: aptman <option(s)> <operation> [...]"
+  echo "operations:"
+  echo "    aptman install [package(s)"
+  echo "    aptman remove [package(s)"
+  echo "    aptman upgrade"
+  echo "    aptman search [package(s)]"
+  echo "    aptman query <package(s)>"
+  echo "aptman -i - run interactively"
+  echo "aptman -h - view this help"
+}
+while getopts "ih" opt; do
+  case $opt in
+    i)
+      interactive=true
+      ;;
+    h)
+      help
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      ;;
+    "")
+      help
+      ;;
+  esac
+done
+
+if [ "$1" != "" ] && [ "$interactive" == false ]
 then
 case "$1" in
   install) install "$2" ;;
@@ -81,7 +110,11 @@ case "$1" in
   search) search "$2" ;;
   query) query "$2" ;;
 esac
+elif [ "$1" == "" ] && [ "$interactive" == false ]
+then
+  help
 else
+
 PS3="Select an operation [1-6]: "
 
 # check if ran with sudo or as root (both resulting in a user id of 0)
